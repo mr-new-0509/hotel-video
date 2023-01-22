@@ -9,52 +9,13 @@ import DialogDetails from "../../../components/DialogDetails";
 import RightForMB from "../HomeForMB/RightForMB";
 import LeftForDB from "../HomeForMB/LeftForMB";
 
-const HOTELS = [
-  {
-    id: 1,
-    name: 'Hotel 1',
-    alias: 'H1',
-    description: 'The description of hotel 1.',
-    stars: 'star1,star2,star3',
-    priceCategory: 'category1,category2',
-    booking_com: 'https://algodesk.io',
-    hotels_com: 'https://dahliadesk.io',
-    agoda_com: 'https://trendingo.cc',
-    city_id: 1
-  },
-  {
-    id: 2,
-    name: 'Hotel 2',
-    alias: 'H2',
-    description: 'The description of hotel 2.',
-    stars: 'star1,star2,star3',
-    priceCategory: 'category1,category2',
-    booking_com: 'https://algodesk.io',
-    hotels_com: 'https://dahliadesk.io',
-    agoda_com: 'https://trendingo.cc',
-    city_id: 2
-  },
-  {
-    id: 3,
-    name: 'Hotel 3',
-    alias: 'H3',
-    description: 'The description of hotel 3.',
-    stars: 'star1,star2,star3',
-    priceCategory: 'category1,category2',
-    booking_com: 'https://algodesk.io',
-    hotels_com: 'https://dahliadesk.io',
-    agoda_com: 'https://trendingo.cc',
-    city_id: 3
-  }
-];
-
-export default function HomeForMB() {
-  const [currentHotel, setCurrentHotel] = useState(HOTELS[0]);
+export default function HomeForMB({ hotels }) {
+  const [currentHotel, setCurrentHotel] = useState(hotels[0]);
   const [dialogOpened, setDialogOpened] = useState(false);
 
   const handleSlideVideo = (swiper) => {
     const { activeIndex } = swiper;
-    setCurrentHotel(HOTELS[activeIndex]);
+    setCurrentHotel(hotels[activeIndex]);
   };
 
   return (
@@ -67,8 +28,9 @@ export default function HomeForMB() {
         </Toolbar>
       </AppBar>
       <Toolbar />
-      <Swiper
-        className="mySwiper swiper-h"
+      <Box
+        component={Swiper}
+        sx={{ width: '100%', height: '100%' }}
         spaceBetween={50}
         pagination={{
           clickable: true,
@@ -80,8 +42,9 @@ export default function HomeForMB() {
           <LeftForDB hotel={currentHotel} />
         </SwiperSlide>
         <SwiperSlide>
-          <Swiper
-            className="mySwiper2 swiper-v"
+          <Box
+            component={Swiper}
+            sx={{ width: '100%', height: '100%' }}
             direction={"vertical"}
             spaceBetween={50}
             pagination={{
@@ -90,7 +53,7 @@ export default function HomeForMB() {
             modules={[Pagination]}
             onSlideChange={handleSlideVideo}
           >
-            {HOTELS.map(hotelItem => (
+            {hotels.map(hotelItem => (
               <SwiperSlide key={hotelItem.id}>
                 <Box>
                   <Box component="video" controls width='80vw'>
@@ -107,12 +70,12 @@ export default function HomeForMB() {
                 </Box>
               </SwiperSlide>
             ))}
-          </Swiper>
+          </Box>
         </SwiperSlide>
         <SwiperSlide>
           <RightForMB hotel={currentHotel} setDialogOpened={setDialogOpened} />
         </SwiperSlide>
-      </Swiper>
+      </Box>
       {currentHotel && (
         <DialogDetails
           opened={dialogOpened}
