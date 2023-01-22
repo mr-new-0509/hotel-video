@@ -32,8 +32,8 @@ export default function HomeForDP({ hotels }) {
       />
       <Box
         component={Swiper}
-        className="mySwiper2 swiper-v"
-        sx={{ flexGrow: 1 }}
+        sx={{ width: '70%', height: '100%' }}
+        style={{ marginRight: 'unset', marginLeft: 350 }}
         direction={"vertical"}
         spaceBetween={50}
         pagination={{

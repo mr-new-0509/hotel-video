@@ -1,4 +1,7 @@
-#app { height: 100% }
+#app {
+  height: 100%;
+  background: #eee;
+}
 html,
 body {
   position: relative;
@@ -17,7 +20,7 @@ body {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: #eee;
 
   display: -webkit-box;
   display: -ms-flexbox;
@@ -42,4 +45,8 @@ body {
 
 .swiper-v {
   background: #eee;
+}
+
+.h-content {
+  height: 1000px !important;
 }
