@@ -1,7 +1,11 @@
 import { Button, Link, Stack } from '@mui/material';
 import React from 'react';
 
-export default function RightForMB({ hotel, sx }) {
+export default function RightForMB({ hotel, sx, setDialogOpened }) {
+  const openDialog = () => {
+    setDialogOpened(true);
+  };
+
   return (
     <Stack spacing={1} alignItems="center" sx={{ ...sx }}>
       <Button variant="contained" onClick={() => openDialog()}>Details</Button>
