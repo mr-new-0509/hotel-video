@@ -6,7 +6,7 @@ export default function DialogDetails({ opened, setOpened, hotel }) {
     setOpened(false);
   };
   return (
-    <Dialog open={opened} onClose={closeDialog}>
+    <Dialog open={opened} onClose={closeDialog} maxWidth="sm" fullWidth>
       <DialogTitle>
         {hotel.name}
       </DialogTitle>
