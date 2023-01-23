@@ -43,7 +43,7 @@ const HOTELS = [
 ];
 
 export default function Home() {
-  const isMB = useMediaQuery('(max-width:390px)');
+  const isMB = useMediaQuery('(max-width:640px)');
   return (
     <>
       {isMB ? <HomeForMB hotels={HOTELS} /> : <HomeForDP hotels={HOTELS} />}

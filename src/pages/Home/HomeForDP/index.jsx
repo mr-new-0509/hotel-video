@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { alpha, AppBar, Box, Button, IconButton, InputBase, Stack, styled, Toolbar } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
+import { Mousewheel, Navigation, Pagination } from 'swiper';
 import { FavoriteBorder, Search as SearchIcon } from '@mui/icons-material';
 import DialogDetails from '../../../components/DialogDetails';
 import LeftSidebar from './LeftSidebar';
@@ -85,14 +85,16 @@ export default function HomeForDP({ hotels }) {
       />
       <Box
         component={Swiper}
-        sx={{ width: '70%', height: '100%' }}
-        style={{ marginRight: 'unset', marginLeft: 320 }}
+        sx={{ width: '70%', height: '90%' }}
+        style={{ marginRight: 'unset', marginLeft: { sm: 160, md: 220, lg: 320 } }}
         direction={"vertical"}
         spaceBetween={50}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        mousewheel={true}
+        navigation={true}
+        modules={[Pagination, Mousewheel, Navigation]}
         onSlideChange={handleSlideVideo}
       >
         {hotels.map(hotelItem => (

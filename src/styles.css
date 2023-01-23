@@ -47,6 +47,21 @@ body {
   background: #eee;
 }
 
+.swiper-button-next {
+  top: auto;
+  bottom: 10px;
+  left: 50%;
+  transform: rotate(90deg);
+  transform-origin: left center;
+}
+
+.swiper-button-prev {
+  top: 10px;
+  left: 50%;
+  transform: rotate(90deg);
+  transform-origin: left center;
+}
+
 .h-content {
   height: 1000px !important;
 }
