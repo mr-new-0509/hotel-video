@@ -11,9 +11,9 @@ const HOTELS = [
     description: 'The description of hotel 1.',
     stars: 'star1,star2,star3',
     priceCategory: 'category1,category2',
-    booking_com: 'https://algodesk.io',
-    hotels_com: 'https://dahliadesk.io',
-    agoda_com: 'https://trendingo.cc',
+    booking_com: 'https://booking.com',
+    hotels_com: 'https://hotels.com',
+    agoda_com: 'https://agoda.com',
     city_id: 1
   },
   {
@@ -23,9 +23,9 @@ const HOTELS = [
     description: 'The description of hotel 2.',
     stars: 'star1,star2,star3',
     priceCategory: 'category1,category2',
-    booking_com: 'https://algodesk.io',
-    hotels_com: 'https://dahliadesk.io',
-    agoda_com: 'https://trendingo.cc',
+    booking_com: 'https://booking.com',
+    hotels_com: 'https://hotels.com',
+    agoda_com: 'https://agoda.com',
     city_id: 2
   },
   {
@@ -35,9 +35,9 @@ const HOTELS = [
     description: 'The description of hotel 3.',
     stars: 'star1,star2,star3',
     priceCategory: 'category1,category2',
-    booking_com: 'https://algodesk.io',
-    hotels_com: 'https://dahliadesk.io',
-    agoda_com: 'https://trendingo.cc',
+    booking_com: 'https://booking.com',
+    hotels_com: 'https://hotels.com',
+    agoda_com: 'https://agoda.com',
     city_id: 3
   }
 ];

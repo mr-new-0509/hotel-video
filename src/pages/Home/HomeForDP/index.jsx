@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { alpha, AppBar, Box, Button, IconButton, InputBase, Stack, styled, Toolbar } from '@mui/material';
+import { alpha, AppBar, Avatar, Box, Button, IconButton, InputBase, Link, Stack, styled, Toolbar } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel, Navigation, Pagination } from 'swiper';
-import { FavoriteBorder, Search as SearchIcon } from '@mui/icons-material';
+import { Article, FavoriteBorder, Search as SearchIcon } from '@mui/icons-material';
 import DialogDetails from '../../../components/DialogDetails';
 import LeftSidebar from './LeftSidebar';
 import { BASE_URL_OF_SERVER, FILE_EXTENSION_OF_VIDEO } from '../../../utils/constants';
@@ -58,6 +58,10 @@ export default function HomeForDP({ hotels }) {
     const { activeIndex } = swiper;
     setCurrentHotel(hotels[activeIndex]);
   };
+
+  const openDialog = () => {
+    setDialogOpened(true);
+  };
   return (
     <>
       <AppBar component="nav" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
@@ -81,7 +85,6 @@ export default function HomeForDP({ hotels }) {
       <Toolbar />
       <LeftSidebar
         hotel={currentHotel}
-        setDialogOpened={setDialogOpened}
       />
       <Box
         component={Swiper}
@@ -108,11 +111,27 @@ export default function HomeForDP({ hotels }) {
                   />
                 </Box>
               </Stack>
-              <Box>
-                <IconButton>
+              <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={2} position="relative">
+                <IconButton onClick={() => openDialog()}>
+                  <Article color="primary" />
+                </IconButton>
+
+                <Stack direction="row" alignItems="center" spacing={1}>
+                  <Button component={Link} target="_blank" href={hotelItem.booking_com} sx={{ minWidth: 0, p: 0 }}>
+                    <Avatar src="/assets/images/booking.png" alt="Booking" sx={{ width: 30, height: 30 }} />
+                  </Button>
+                  <Button component={Link} target="_blank" href={hotelItem.hotels_com} sx={{ minWidth: 0, p: 0 }}>
+                    <Avatar src="/assets/images/hotels.png" alt="Hotels" sx={{ width: 30, height: 30 }} />
+                  </Button>
+                  <Button component={Link} target="_blank" href={hotelItem.agoda_com} sx={{ minWidth: 0, p: 0 }}>
+                    <Avatar src="/assets/images/agoda.png" alt="Agoda" sx={{ width: 30, height: 30 }} />
+                  </Button>
+                </Stack>
+
+                <IconButton sx={{ position: 'absolute', top: 0, right: '47.5%' }}>
                   <FavoriteBorder color="primary" />
                 </IconButton>
-              </Box>
+              </Stack>
             </Box>
           </SwiperSlide>
         ))}
