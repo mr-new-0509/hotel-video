@@ -17,6 +17,8 @@ export default function HomeForMB({ hotels }) {
   const handleSlideVideo = (swiper) => {
     const { activeIndex } = swiper;
     setCurrentHotel(hotels[activeIndex]);
+    let videoDom = document.getElementById(`video${activeIndex}`);
+    videoDom.play();
   };
 
   const openDialog = () => {
@@ -74,10 +76,10 @@ export default function HomeForMB({ hotels }) {
             // modules={[Pagination]}
             onSlideChange={handleSlideVideo}
           >
-            {hotels.map(hotelItem => (
+            {hotels.map((hotelItem, index) => (
               <SwiperSlide key={hotelItem.id}>
                 <Box position="relative">
-                  <Box component="video" controls width="100%" height="auto">
+                  <Box component="video" controls width="100%" height="auto" id={`video${index}`} autoPlay={index === 0 ? true : false}>
                     <source
                       src={`${BASE_URL_OF_SERVER}/1.${FILE_EXTENSION_OF_VIDEO}`}
                       type={`video/${FILE_EXTENSION_OF_VIDEO}`}

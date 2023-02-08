@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { alpha, AppBar, Avatar, Box, Button, IconButton, InputBase, Link, Stack, styled, Toolbar } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -57,6 +57,8 @@ export default function HomeForDP({ hotels }) {
   const handleSlideVideo = (swiper) => {
     const { activeIndex } = swiper;
     setCurrentHotel(hotels[activeIndex]);
+    let videoDom = document.getElementById(`video${activeIndex}`);
+    videoDom.play();
   };
 
   const openDialog = () => {
@@ -100,11 +102,11 @@ export default function HomeForDP({ hotels }) {
         modules={[Pagination, Mousewheel, Navigation]}
         onSlideChange={handleSlideVideo}
       >
-        {hotels.map(hotelItem => (
+        {hotels.map((hotelItem, index) => (
           <SwiperSlide key={hotelItem.id}>
             <Box>
               <Stack direction="row" justifyContent="center">
-                <Box component="video" controls width='60vw'>
+                <Box component="video" controls width='60vw' id={`video${index}`} autoPlay={index === 0 ? true : false}>
                   <source
                     src={`${BASE_URL_OF_SERVER}/1.${FILE_EXTENSION_OF_VIDEO}`}
                     type={`video/${FILE_EXTENSION_OF_VIDEO}`}
